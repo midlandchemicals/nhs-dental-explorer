@@ -112,3 +112,19 @@ data/contracts.csv                     # cleaned source data
 Re-run the cleaning step on the new NHSBSA spreadsheet to regenerate
 `data/contracts.csv` with the same columns, then `npm run seed` again (it upserts on
 `contract_id`).
+
+---
+
+## Oral Surgery revision app (`/oral-surgery`)
+
+A separate, self-contained revision site for the UK Oral Surgery specialty training
+syllabus (Oral Surgery SAC, Sept 2024) lives in `public/oral-surgery/`. It is plain
+HTML/CSS/JS (no build step) and is served by Next.js at `/oral-surgery`.
+
+- 10 sections (foundations + domains 1–9), 102 topics with revision notes and the
+  syllabus outcomes for each, 373 flashcards, 82 single-best-answer questions,
+  full-text search, a guidelines library and per-device progress tracking.
+- Built for iPhone: safe-area layout, bottom tab bar, dark mode, swipeable flashcards,
+  and "Add to Home Screen" support with offline caching (`sw.js`).
+- Content lives in `public/oral-surgery/content/*.js`. When you change any file,
+  bump `VERSION` in `sw.js` so installed copies refresh.
